@@ -1,0 +1,297 @@
+/* ======================================================================
+   byeonggeun.io — shikun.io 포맷 기반 vanilla CSS
+   ====================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code&family=Mynerve&display=swap');
+
+:root {
+  --bg: #ffffff;
+  --text: #353535;
+  --muted: #6b6b6b;
+  --rule: #e5e5e5;
+  --accent: #ff9800;
+  --heart: #ec6863;
+  --link: #353535;
+  --link-hover: #ff9800;
+
+  --font-body: 'EB Garamond', 'Tiempos Text', Georgia, serif;
+  --font-code: 'Fira Code', ui-monospace, Menlo, monospace;
+  --font-signature: 'Mynerve', cursive;
+
+  --pad-x: 6vw;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  transition: color .15s ease, border-color .15s ease;
+}
+a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+a.bare, .nav-bar a, .social a, .button.project { border-bottom: none; }
+
+.container { padding: 0 var(--pad-x); }
+.section { padding: 4rem 0 2rem; }
+
+/* ---------------- Nav bar ---------------- */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem var(--pad-x);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 50;
+}
+.nav-brand {
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: .02em;
+}
+.nav-links { display: flex; gap: 1.8rem; align-items: center; }
+.nav-links a {
+  color: var(--text);
+  font-size: 0.98rem;
+  position: relative;
+}
+.nav-links a.active::after {
+  content: '';
+  display: block;
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.social { display: flex; gap: 1rem; align-items: center; }
+.social a { color: var(--text); font-size: 1.1rem; }
+.social a:hover { color: var(--accent); }
+
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0; }
+.hamburger svg { width: 28px; height: 28px; stroke: var(--text); }
+
+/* ---------------- Hero (Home) ---------------- */
+.home-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  min-height: calc(100vh - 5rem - 4rem);
+  padding: 4rem 0;
+}
+.home-intro { flex: 1.4; }
+.home-intro h1 {
+  font-size: 3.4rem;
+  font-weight: 500;
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+.home-intro .lead {
+  font-size: 1.25rem;
+  color: var(--text);
+  margin: 0 0 0.6rem;
+}
+.home-intro .vision {
+  font-style: italic;
+  color: var(--muted);
+  margin: 0 0 2rem;
+  max-width: 38rem;
+}
+.home-profile {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.home-profile img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  border: 1px solid var(--text);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: transparent;
+  transition: background .15s ease, color .15s ease;
+}
+.button:hover { background: var(--text); color: var(--bg); }
+
+.button.project {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 4px;
+  border: none;
+  font-size: 0.92em;
+  background: var(--rule);
+  color: var(--text);
+}
+
+/* ---------------- About — 2-column "01 / label + body" ---------------- */
+.about-row {
+  display: grid;
+  grid-template-columns: 1fr 2.4fr;
+  gap: 3rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.about-row:last-child { border-bottom: none; }
+.about-intro {
+  font-family: var(--font-code);
+  font-size: 0.95rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.about-intro .num { font-weight: 500; color: var(--accent); margin-right: 0.5rem; }
+.about-content h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 0 0 1rem;
+}
+.about-content p { margin: 0 0 1rem; }
+
+/* ---------------- Education / Experience tables ---------------- */
+.timeline { list-style: none; padding: 0; margin: 0; }
+.timeline li {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1.5rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.timeline li:last-child { border-bottom: none; }
+.timeline .when {
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.timeline .what strong { font-weight: 600; }
+.timeline .what .sub { color: var(--muted); font-size: 0.95rem; }
+
+/* ---------------- Project / news cards ---------------- */
+.project-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.6rem;
+  padding: 2rem 0;
+}
+.project-card {
+  display: block;
+  border-radius: 10px;
+  padding: 1.6rem;
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+}
+.project-card .project-cover {
+  height: 110px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  background-color: rgba(0,0,0,0.05);
+}
+.project-card .project-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+.project-card .project-intro {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0;
+}
+.project-card .new-badge {
+  display: inline-block;
+  margin-left: 0.4rem;
+  font-size: 0.7em;
+  color: var(--accent);
+  font-weight: 600;
+  vertical-align: super;
+}
+
+/* ---------------- Publications ---------------- */
+.pub-year {
+  font-family: var(--font-code);
+  font-size: 0.95rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin: 2.4rem 0 0.8rem;
+}
+.pub-list { list-style: none; padding: 0; margin: 0; }
+.pub-list li {
+  padding: 1rem 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.pub-list li:last-child { border-bottom: none; }
+.pub-list .title { font-weight: 600; display: block; margin-bottom: 0.2rem; }
+.pub-list .authors { color: var(--muted); font-size: 0.95rem; display: block; margin-bottom: 0.2rem; }
+.pub-list .venue { font-style: italic; color: var(--muted); font-size: 0.92rem; }
+.pub-list .links { margin-top: 0.3rem; font-size: 0.9rem; }
+.pub-list .links a { margin-right: 0.8rem; }
+.pub-list .me { color: var(--text); font-weight: 600; }
+
+/* ---------------- Footer ---------------- */
+.footer {
+  border-top: 1px solid var(--rule);
+  padding: 2.5rem var(--pad-x);
+  margin-top: 4rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer .heart { color: var(--heart); }
+.footer .signature { font-family: var(--font-signature); font-size: 1.2rem; color: var(--text); }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 769px) {
+  body { font-size: 17px; }
+  :root { --pad-x: 5vw; }
+
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); flex-direction: column; padding: 1rem var(--pad-x); border-bottom: 1px solid var(--rule); gap: 1rem; }
+  .nav-links.open { display: flex; }
+  .social { display: none; }
+  .hamburger { display: block; }
+
+  .home-container { flex-direction: column-reverse; gap: 2rem; padding: 2.5rem 0; min-height: auto; }
+  .home-intro h1 { font-size: 2.4rem; }
+  .home-profile img { width: 200px; height: 200px; }
+
+  .about-row { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 0; }
+  .timeline li { grid-template-columns: 1fr; gap: 0.2rem; }
+  .timeline .when { font-size: 0.8rem; }
+}
