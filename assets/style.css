@@ -285,8 +285,20 @@ a.bare:not(.button), .nav-bar a, .social a, .button.project { border-bottom: non
 .pub-list li:last-child { border-bottom: none; }
 .pub-list .title { font-weight: 600; display: block; margin-bottom: 0.2rem; }
 .pub-list .authors { color: var(--muted); font-size: 0.95rem; display: block; margin-bottom: 0.2rem; }
-.pub-list .venue { font-style: italic; color: var(--muted); font-size: 0.92rem; }
-.pub-list .links { margin-top: 0.3rem; font-size: 0.9rem; }
+.pub-list .venue {
+  display: inline-block;
+  background: #eaeef3;
+  color: #1a3a5c;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.15em 0.55em;
+  border-radius: 4px;
+  font-style: normal;
+  margin-right: 0.4em;
+  text-transform: none;
+}
+.pub-list .links { display: inline; font-size: 0.9rem; }
 .pub-list .links a { margin-right: 0.8rem; }
 .pub-list .me { color: var(--text); font-weight: 600; }
 
