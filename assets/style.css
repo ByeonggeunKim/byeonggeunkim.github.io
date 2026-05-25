@@ -36,12 +36,11 @@ body {
 a {
   color: var(--link);
   text-decoration: none;
-  font-weight: 600;
-  border-bottom: 2px solid #b0b0b0;
+  border-bottom: 1px solid #d6d6d6;
   transition: color .15s ease, border-color .15s ease;
 }
 a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
-a.bare:not(.button), .nav-bar a, .social a, .button.project { border-bottom: none; font-weight: inherit; }
+a.bare:not(.button), .nav-bar a, .social a, .button.project { border-bottom: none; }
 
 .container { padding: 0 var(--pad-x); }
 .section { padding: 4rem 0 2rem; }
@@ -82,9 +81,7 @@ a.bare:not(.button), .nav-bar a, .social a, .button.project { border-bottom: non
 }
 .social { display: flex; gap: 1.6rem; align-items: center; justify-self: end; }
 .social a { color: var(--text); font-size: 1.25rem; position: relative; }
-.social a.social-email:hover    { color: #888888; }
-.social a.social-scholar:hover  { color: #4caf50; }
-.social a.social-linkedin:hover { color: #0a66c2; }
+.social a:hover { color: #4caf50; }
 
 .hamburger { visibility: hidden; background: none; border: none; cursor: pointer; padding: 0; }
 .hamburger svg { width: 28px; height: 28px; stroke: var(--text); }
@@ -126,7 +123,10 @@ a.bare:not(.button), .nav-bar a, .social a, .button.project { border-bottom: non
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  filter: grayscale(100%);
+  transition: filter .35s ease;
 }
+.home-profile img:hover { filter: grayscale(0%); }
 
 .button {
   display: inline-block;
