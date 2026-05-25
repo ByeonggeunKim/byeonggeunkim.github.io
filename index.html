@@ -7,25 +7,32 @@
   <meta name="description" content="Byeonggeun Kim — Senior Applied Scientist at Amazon AGI. Research on neural audio codecs, audio understanding encoders, and multimodal LLMs.">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q4RNB01KZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7Q4RNB01KZ');
+  </script>
 </head>
 <body>
 
 <!-- ====================== NAV ====================== -->
 <nav class="nav-bar">
-  <a href="index.html" class="nav-brand bare">Byeonggeun Kim</a>
   <button class="hamburger" aria-label="menu">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
   <div class="nav-links">
     <a href="index.html" class="active">Home</a>
-    <a href="publications.html">Publications</a>
     <a href="about.html">About</a>
-    <a href="https://drive.google.com/file/d/17Wgc7u4nZ0QI-tNfpadsK4Wds71PUrw8/view?usp=share_link" target="_blank" rel="noopener">CV</a>
+    <a href="publications.html">Publications</a>
+    <a href="assets/BGKim_CV.pdf" target="_blank" rel="noopener">Resume</a>
   </div>
   <div class="social">
-    <a href="mailto:bungkun1349@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-    <a href="https://scholar.google.com/citations?user=Pee89n0AAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
-    <a href="https://www.linkedin.com/in/byeonggeun-kim-b8112a194/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+    <a class="social-email" href="mailto:bungkun1349@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    <a class="social-scholar" href="https://scholar.google.com/citations?user=Pee89n0AAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+    <a class="social-linkedin" href="https://www.linkedin.com/in/byeonggeun-kim-b8112a194/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
   </div>
 </nav>
 
@@ -34,8 +41,9 @@
   <section class="home-container">
     <div class="home-intro">
       <h1>Hello <span aria-hidden="true">👋</span></h1>
-      <p class="lead">I'm <strong>Byeonggeun Kim</strong>, Senior Applied Scientist at <a href="https://www.amazon.science/" target="_blank" rel="noopener">Amazon AGI</a>, based in Seattle, WA.</p>
-      <p class="vision">I work on neural audio codecs, audio understanding encoders, and their integration into multimodal LLMs — currently contributing to full-duplex audio for <a href="https://aws.amazon.com/nova/" target="_blank" rel="noopener">Amazon Nova</a>.</p>
+      <p class="lead">I'm <strong>Byeonggeun Kim (김병근)</strong>.</p>
+      <p class="lead">I am a Senior Applied Scientist at <a href="https://amazon.jobs/content/en/teams/agi" target="_blank" rel="noopener">Amazon AGI</a> in Seattle, WA, dedicated to advancing Audio and Speech AGI.</p>
+      <p class="vision">My current research centers on speech-to-speech modeling for natural, seamless conversations. I focus specifically on initiatives involving audio encoders, neural codecs, audio and music generation, and speech-to-speech generation for <a href="https://aws.amazon.com/nova/" target="_blank" rel="noopener">Amazon Nova</a> and full-duplex efforts.</p>
       <p>
         <a href="about.html" class="button bare">Read More &nbsp;&rarr;</a>
       </p>
@@ -44,56 +52,10 @@
       <img src="assets/portrait.jpg" alt="Byeonggeun Kim" onerror="this.style.display='none'">
     </div>
   </section>
-
-  <!-- ====================== HIGHLIGHTS / PROJECTS ====================== -->
-  <section class="section">
-    <div class="about-row">
-      <div class="about-intro"><span class="num">01 /</span> Highlights</div>
-      <div class="about-content">
-        <div class="project-block">
-          <a class="project-card" href="https://www.amazon.science/publications/amazon-nova-2-multimodal-reasoning-and-generation-models" target="_blank" rel="noopener" style="background-color:#d9e2f2;">
-            <div class="project-cover" style="background-color:#b9c8e0;"></div>
-            <div class="project-title">Amazon Nova 2 <sup class="new-badge">NEW</sup></div>
-            <p class="project-intro">Audio/music generation, audio encoder & codec for Nova multimodal models.</p>
-          </a>
-          <a class="project-card" href="publications.html#bcresnet" style="background-color:#F0C27B;">
-            <div class="project-cover" style="background-color:#e0a854;"></div>
-            <div class="project-title">BCResNets</div>
-            <p class="project-intro">Broadcasted residual learning for efficient keyword spotting. INTERSPEECH 2021.</p>
-          </a>
-          <a class="project-card" href="publications.html#dcase2021" style="background-color:#A3423C; color:#fff;">
-            <div class="project-cover" style="background-color:#7a2f2a;"></div>
-            <div class="project-title">DCASE 2021 — 1st Place</div>
-            <p class="project-intro">Residual normalization for device-imbalanced acoustic scene classification.</p>
-          </a>
-          <a class="project-card" href="publications.html" style="background-color:#c8e6c9;">
-            <div class="project-cover" style="background-color:#a5d6a7;"></div>
-            <div class="project-title">Audio Encoder Pretraining</div>
-            <p class="project-intro">Effective techniques for scaling audio encoder pretraining. ICASSP 2025 (Oral).</p>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ====================== RECENT NEWS ====================== -->
-    <div class="about-row">
-      <div class="about-intro"><span class="num">02 /</span> Recent</div>
-      <div class="about-content">
-        <ul class="timeline">
-          <li><div class="when">Feb 2026</div><div class="what">Invited talk at <strong>Yale University</strong> (CPSC 7760) — <em>Efficient and High Fidelity Text-to-Audio Generation: From Parallel Decoding to Causal Streaming</em>.</div></li>
-          <li><div class="when">2026</div><div class="what">Serving as <strong>Area Chair</strong> for ICASSP 2026.</div></li>
-          <li><div class="when">Sep 2025</div><div class="what">Invited talk at <strong>Amazon Media &amp; Entertainment ML &amp; AI Summit</strong>.</div></li>
-          <li><div class="when">Apr 2025</div><div class="what">Promoted to <strong>Senior Applied Scientist</strong> at Amazon AGI.</div></li>
-          <li><div class="when">Feb 2024</div><div class="what">Received <strong>Alexa Perceptual Technology Award</strong> (Q3/Q4 2023).</div></li>
-        </ul>
-      </div>
-    </div>
-  </section>
 </main>
 
 <!-- ====================== FOOTER ====================== -->
 <footer class="footer">
-  <div>Made with <span class="heart">♥</span> by <span class="signature">Byeonggeun</span></div>
   <div>&copy; 2026 Byeonggeun Kim</div>
 </footer>
 
