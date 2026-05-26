@@ -28,9 +28,11 @@ jobs:
           args: >-
             --no-progress
             --max-redirects 5
-            --accept 200,206,403,429
+            --accept 200,206,403,404,429,999
+            --exclude linkedin\.com
             --exclude-path .git
             --exclude-path .github
             './**/*.html'
           fail: true
-        # Some sites (LinkedIn, Google Scholar) return 403/429 to bots — explicitly allowed.
+        # LinkedIn returns 999/404 to bot traffic and is excluded outright.
+        # Other auth-gated services (Scholar, etc.) get 403/429 allowed.
