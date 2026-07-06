@@ -218,6 +218,29 @@ a.bare:not(.button), .nav-bar a, .social a, .button.project { border-bottom: non
 .exp-summary { margin: 0.7rem 0 0; color: var(--text); }
 .exp-summary strong { font-weight: 600; }
 
+/* ---------------- Hover-zoom award / patent thumbnails ---------------- */
+.thumb-zoom {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  cursor: zoom-in;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform-origin: left center;
+  position: relative;
+  z-index: 1;
+}
+.thumb-zoom:hover {
+  transform: scale(3.4);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  z-index: 10;
+}
+/* thumbnails grouped inline (e.g. patents with two images) */
+.thumb-group { white-space: nowrap; }
+.thumb-group .thumb-zoom:not(:first-child) { margin-left: 0.3rem; }
+
 /* ---------------- Project / news cards ---------------- */
 .project-block {
   display: grid;
