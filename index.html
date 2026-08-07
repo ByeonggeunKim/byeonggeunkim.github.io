@@ -12,7 +12,7 @@
   <meta property="og:image" content="https://byeonggeunkim.github.io/assets/og-image.jpg">
   <meta property="og:url" content="https://byeonggeunkim.github.io/">
   <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=20260807">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q4RNB01KZ"></script>
@@ -24,63 +24,160 @@
   </script>
 </head>
 <body>
-
-<!-- ====================== NAV ====================== -->
-<nav class="nav-bar">
-  <button class="hamburger" aria-label="menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
-  <div class="nav-links">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="publications.html">Publications</a>
-    <a href="assets/BGKim_CV.pdf" target="_blank" rel="noopener">Resume</a>
-  </div>
-  <div class="social">
-    <a class="social-email" href="mailto:bungkun1349@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-    <a class="social-scholar" href="https://scholar.google.com/citations?user=Pee89n0AAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
-    <a class="social-linkedin" href="https://www.linkedin.com/in/byeonggeun-kim-b8112a194/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-  </div>
-</nav>
-
-<!-- ====================== HERO ====================== -->
-<main class="container">
-  <section class="home-container">
-    <div class="home-intro">
-      <h1>Hello <span aria-hidden="true">👋</span></h1>
-      <p class="lead">I'm <strong>Byeonggeun Kim (김병근)</strong>.</p>
-      <p class="lead">I am a Senior Applied Scientist at <a href="https://amazon.jobs/content/en/teams/agi" target="_blank" rel="noopener">Amazon AGI</a> in Seattle, WA, dedicated to advancing Audio and Speech AGI.</p>
-      <p class="vision">My current research centers on speech-to-speech modeling for natural, seamless conversations. I focus specifically on initiatives involving audio encoders, neural codecs, audio and music generation, and speech-to-speech generation for <a href="https://aws.amazon.com/nova/" target="_blank" rel="noopener">Amazon Nova</a> and full-duplex efforts.</p>
-      <p>
-        <a href="about.html" class="button bare">Read More &nbsp;&rarr;</a>
-      </p>
+<header class="site-header">
+  <nav class="nav-bar" aria-label="Primary navigation">
+    <a class="nav-brand" href="index.html" aria-current="page">Byeonggeun Kim</a>
+    <button class="hamburger" type="button" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="sr-only">Toggle navigation</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="4" y1="7" x2="20" y2="7"></line>
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="17" x2="20" y2="17"></line>
+      </svg>
+    </button>
+    <div class="nav-panel" id="primary-navigation">
+      <div class="nav-links">
+        <a href="index.html" class="active" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="publications.html">Publications</a>
+        <a href="assets/BGKim_CV.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+      <div class="social" aria-label="External profiles">
+        <a href="mailto:bungkun1349@gmail.com" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+        <a href="https://scholar.google.com/citations?user=Pee89n0AAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/byeonggeun-kim-b8112a194/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+      </div>
     </div>
-    <div class="home-profile">
-      <img src="assets/portrait.jpg" alt="Byeonggeun Kim" onerror="this.style.display='none'">
+  </nav>
+</header>
+
+<main>
+  <section class="hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow">Senior Applied Scientist <span aria-hidden="true">/</span> Amazon AGI</p>
+      <h1>Byeonggeun Kim</h1>
+      <p class="hero-lead">I build models that understand and generate audio for natural, real-time conversations.</p>
+      <p class="hero-summary">My research has progressed from efficient on-device and few-shot audio learning to audio encoders, neural codecs, and generation for Amazon AGI projects, including <a href="https://aws.amazon.com/nova/" target="_blank" rel="noopener">Amazon Nova</a>. I currently focus on full-duplex speech-to-speech modeling.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#selected-work">Selected work <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+        <a class="text-action" href="about.html">About me <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="hero-meta">
+        <span>Seattle, Washington</span>
+        <a href="mailto:bungkun1349@gmail.com">Email</a>
+        <a href="assets/BGKim_CV.pdf" target="_blank" rel="noopener">CV <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img src="assets/portrait.jpg" alt="Portrait of Byeonggeun Kim" width="1029" height="1029">
+      <figcaption><span>Research focus</span> Audio and Speech AGI</figcaption>
+    </figure>
+  </section>
+
+  <section class="work-band" id="selected-work">
+    <div class="shell section-layout">
+      <header class="section-heading">
+        <p class="eyebrow">Selected work</p>
+        <h2>From on-device audio to generative systems.</h2>
+        <p>Representative outcomes across efficient architecture, robust learning, and audio foundation models.</p>
+      </header>
+      <div class="work-list">
+        <article class="work-item">
+          <div class="work-number">01</div>
+          <div class="work-body">
+            <p class="work-meta">Audio foundation &amp; generation <span>2025</span></p>
+            <h3><a href="https://www.amazon.science/publications/amazon-nova-2-multimodal-reasoning-and-generation-models" target="_blank" rel="noopener">Amazon Nova 2</a></h3>
+            <p>Audio and music generation, encoder, and codec contributions to Amazon's multimodal reasoning and generation models.</p>
+            <div class="resource-links">
+              <a class="text-action" href="https://www.amazon.science/publications/amazon-nova-2-multimodal-reasoning-and-generation-models" target="_blank" rel="noopener">Technical report <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+        <article class="work-item">
+          <div class="work-number">02</div>
+          <div class="work-body">
+            <p class="work-meta">Generative audio <span>ICML 2025</span></p>
+            <h3><a href="https://www.amazon.science/publications/generative-audio-language-modeling-with-continuous-valued-tokens-and-masked-next-token-prediction" target="_blank" rel="noopener">Continuous-valued Audio Language Modeling</a></h3>
+            <p>Generative audio language modeling with masked next-token prediction and continuous-valued tokens.</p>
+            <div class="resource-links">
+              <a class="text-action" href="https://www.amazon.science/publications/generative-audio-language-modeling-with-continuous-valued-tokens-and-masked-next-token-prediction" target="_blank" rel="noopener">Publication <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+        <article class="work-item">
+          <div class="work-number">03</div>
+          <div class="work-body">
+            <p class="work-meta">Efficient on-device wake word <span>INTERSPEECH 2021</span></p>
+            <h3><a href="https://arxiv.org/abs/2106.04140" target="_blank" rel="noopener">BC-ResNets</a></h3>
+            <p>Broadcasted residual learning for accurate, low-compute keyword spotting on resource-constrained devices.</p>
+            <div class="resource-links">
+              <a class="text-action" href="https://arxiv.org/abs/2106.04140" target="_blank" rel="noopener">Paper <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              <a class="text-action" href="https://github.com/Qualcomm-AI-research/bcresnet" target="_blank" rel="noopener">Code <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+        <article class="work-item" id="dcase-work">
+          <div class="work-number">04</div>
+          <div class="work-body">
+            <p class="work-meta">On-device audio × robust learning <span>DCASE 2021 · 1st Place</span></p>
+            <h3><a href="https://dcase.community/challenge2021/task-acoustic-scene-classification-results-a#teams-ranking" target="_blank" rel="noopener">DCASE 2021 Challenge Winner</a></h3>
+            <p>A low-complexity, device-robust acoustic scene classification system combining efficient design and domain generalization.</p>
+            <div class="resource-links">
+              <a class="text-action" href="https://dcase.community/challenge2021/task-acoustic-scene-classification-results-a#teams-ranking" target="_blank" rel="noopener">Official results <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              <a class="text-action" href="https://dcase.community/documents/challenge2021/technical_reports/DCASE2021_Kim_36_t1.pdf" target="_blank" rel="noopener">Technical report <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              <a class="text-action" href="https://dcase.community/documents/workshop2021/proceedings/DCASE2021Workshop_Kim_12.pdf" target="_blank" rel="noopener">Workshop paper <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              <a class="text-action" href="https://arxiv.org/abs/2206.12513" target="_blank" rel="noopener">INTERSPEECH paper <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="about-row">
-      <div class="about-intro">News</div>
-      <div class="about-content">
-        <ul class="timeline">
-          <li><div class="when">Feb 2026</div><div class="what">Invited talk at <strong>Yale University</strong> (CPSC 7760) — <em>Efficient and High Fidelity Text-to-Audio Generation</em>.</div></li>
-          <li><div class="when">Dec 2025</div><div class="what">Contributed to the launch of <a href="https://www.amazon.science/publications/amazon-nova-2-multimodal-reasoning-and-generation-models" target="_blank" rel="noopener"><strong>Amazon Nova 2</strong></a> — multimodal reasoning and generation models (audio/music generation, encoder &amp; codec).</div></li>
-          <li><div class="when">Sep 2025</div><div class="what">Invited talk at <strong>Amazon Media &amp; Entertainment ML+AI Summit</strong>.</div></li>
-          <li><div class="when">May 2025</div><div class="what">Two papers accepted at <strong>ICML 2025</strong>: <a href="https://www.amazon.science/publications/generative-audio-language-modeling-with-continuous-valued-tokens-and-masked-next-token-prediction" target="_blank" rel="noopener">Generative Audio LM with Continuous-valued Tokens</a> and <a href="https://www.amazon.science/publications/impact-iterative-mask-based-parallel-decoding-for-text-to-audio-generation-with-diffusion-modeling" target="_blank" rel="noopener">IMPACT</a> (mentored internship work).</div></li>
-          <li><div class="when">Apr 2025</div><div class="what">Promoted to <strong>Senior Applied Scientist</strong> at Amazon AGI.</div></li>
-        </ul>
-      </div>
+  <section class="news-section shell">
+    <div class="section-layout">
+      <header class="section-heading section-heading-compact">
+        <p class="eyebrow">Recent</p>
+        <h2>News and milestones.</h2>
+        <a class="text-action" href="publications.html">All publications <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </header>
+      <ol class="news-list">
+        <li>
+          <time datetime="2026-02">Feb 2026</time>
+          <p>Invited talk at <strong>Yale University</strong> (CPSC 7760): <em>Efficient and High Fidelity Text-to-Audio Generation</em>.</p>
+        </li>
+        <li>
+          <time datetime="2025-12">Dec 2025</time>
+          <p>Contributed to the launch of <a href="https://www.amazon.science/publications/amazon-nova-2-multimodal-reasoning-and-generation-models" target="_blank" rel="noopener"><strong>Amazon Nova 2</strong></a>.</p>
+        </li>
+        <li>
+          <time datetime="2025-09">Sep 2025</time>
+          <p>Invited talk at the <strong>Amazon Media &amp; Entertainment ML+AI Summit</strong>.</p>
+        </li>
+        <li>
+          <time datetime="2025-05">May 2025</time>
+          <p>Two papers accepted at <strong>ICML 2025</strong>, including IMPACT and continuous-valued audio language modeling.</p>
+        </li>
+      </ol>
     </div>
   </section>
 </main>
 
-<!-- ====================== FOOTER ====================== -->
 <footer class="footer">
-  <div>&copy; 2026 Byeonggeun Kim</div>
+  <div class="shell footer-inner">
+    <div>
+      <strong>Byeonggeun Kim</strong>
+      <span>Senior Applied Scientist · Seattle</span>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:bungkun1349@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=Pee89n0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a>
+      <a href="assets/BGKim_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </div>
+    <div class="copyright">&copy; 2026 Byeonggeun Kim</div>
+  </div>
 </footer>
 
-<script src="assets/script.js"></script>
+<script src="assets/script.js?v=20260807"></script>
 </body>
 </html>

@@ -1,44 +1,86 @@
-// Mobile hamburger toggle + sliding nav indicator dot. Vanilla JS, no jQuery.
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.querySelector('.hamburger');
-  const links = document.querySelector('.nav-links');
-  if (btn && links) {
-    btn.addEventListener('click', () => links.classList.toggle('open'));
+  const button = document.querySelector('.hamburger');
+  const panel = document.querySelector('.nav-panel');
+
+  if (button && panel) {
+    const setOpen = (open) => {
+      panel.classList.toggle('open', open);
+      button.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('nav-open', open);
+    };
+
+    button.addEventListener('click', () => {
+      setOpen(button.getAttribute('aria-expanded') !== 'true');
+    });
+
+    panel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+        button.focus();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 800) setOpen(false);
+    });
   }
 
-  const navBar = document.querySelector('.nav-bar');
-  if (!navBar) return;
+  const filterButtons = [...document.querySelectorAll('[data-publication-filter]')];
+  const publicationItems = [...document.querySelectorAll('#publications .pub-list > li[data-topics]')];
+  const publicationLists = [...document.querySelectorAll('#publications .pub-list')];
+  const filterStatus = document.querySelector('#publication-filter-status');
 
-  const indicator = document.createElement('span');
-  indicator.className = 'nav-indicator';
-  navBar.appendChild(indicator);
+  if (filterButtons.length && publicationItems.length) {
+    const applyFilter = (filter) => {
+      let visibleCount = 0;
 
-  const targets = navBar.querySelectorAll('.nav-links a, .social a');
+      publicationItems.forEach((item) => {
+        const topics = item.dataset.topics.split(' ');
+        const visible = filter === 'all' || topics.includes(filter);
+        item.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
 
-  const moveTo = (el) => {
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const nav = navBar.getBoundingClientRect();
-    const left = r.left - nav.left + r.width / 2 - 3;
-    const top = r.bottom - nav.top + 4;
-    indicator.style.left = `${left}px`;
-    indicator.style.top = `${top}px`;
-    indicator.style.opacity = '1';
-  };
+      publicationLists.forEach((list) => {
+        const hasVisibleItems = [...list.children].some((item) => !item.hidden);
+        list.hidden = !hasVisibleItems;
 
-  const active = navBar.querySelector('.nav-links a.active');
-  if (active) requestAnimationFrame(() => moveTo(active));
+        const year = list.previousElementSibling;
+        if (year?.classList.contains('pub-year')) {
+          year.hidden = !hasVisibleItems;
+        }
+      });
 
-  targets.forEach((a) => {
-    a.addEventListener('mouseenter', () => moveTo(a));
-  });
+      filterButtons.forEach((filterButton) => {
+        const active = filterButton.dataset.publicationFilter === filter;
+        filterButton.classList.toggle('active', active);
+        filterButton.setAttribute('aria-pressed', String(active));
+      });
 
-  navBar.addEventListener('mouseleave', () => {
-    if (active) moveTo(active);
-    else indicator.style.opacity = '0';
-  });
+      if (filterStatus) {
+        filterStatus.textContent = `${visibleCount} publications shown`;
+      }
+    };
 
-  window.addEventListener('resize', () => {
-    if (active) moveTo(active);
-  });
+    filterButtons.forEach((filterButton) => {
+      filterButton.addEventListener('click', () => {
+        const filter = filterButton.dataset.publicationFilter;
+        const url = new URL(window.location.href);
+
+        if (filter === 'all') url.searchParams.delete('topic');
+        else url.searchParams.set('topic', filter);
+
+        window.history.replaceState({}, '', url);
+        applyFilter(filter);
+      });
+    });
+
+    const requestedFilter = new URLSearchParams(window.location.search).get('topic');
+    const availableFilters = filterButtons.map((filterButton) => filterButton.dataset.publicationFilter);
+    applyFilter(availableFilters.includes(requestedFilter) ? requestedFilter : 'all');
+  }
 });
